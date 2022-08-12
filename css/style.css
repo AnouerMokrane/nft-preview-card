@@ -1,0 +1,151 @@
+:root {
+    --main-BG: hsl(217, 54%, 11%);
+    --card-bg: hsl(216, 50%, 16%);
+    --line: hsl(215, 32%, 27%);
+    --white: hsl(0, 0%, 100%);
+}
+* {
+    box-sizing: border-box;   
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    background-color: var(--main-BG);
+    display: grid;
+    place-content: center;
+}
+.card {
+    max-width: 320px;
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 22px 0 15px rgb(0 0 0 / 8%);
+}
+.card .card-image {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.card .card-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: hsl(178, 100%, 50%);
+    opacity: 0;
+    transition: 0.5s;
+    z-index: 3;
+}
+.card .card-image::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/icon-view.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    opacity: 0;
+    transition: 0.5s;
+    z-index: 4;
+}
+.card .card-image:hover::before {
+    opacity: 0.5;
+}
+.card .card-image:hover::after {
+    opacity: 1;
+}
+.card  .card-image img {
+    max-width: 100%;
+    transition: 1s;
+}
+.card  .card-image:hover img  {
+    transform: scale(1.1);
+}
+.text {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+}
+.text h1 {
+    color: var(--white);
+    font-size: 21px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.text h1:hover {
+    color: hsl(178, 100%, 50%);
+}
+.text p {
+    font-size: 17px;
+    color: hsl(215, 51%, 70%);
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-weight: 300;
+}
+.price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    color: hsl(215, 51%, 70%);
+}
+.price :first-child {
+    color: hsl(178, 100%, 50%);
+    font-weight: 600;
+}.price span {
+    display: flex;
+    align-items: center;
+}
+.price img {
+    margin-right: 5px;
+}
+.price .avatar {
+    margin-right: 10px;
+    animation: rotate-img 2s linear infinite ;
+}
+.creator {
+    display: flex;
+    align-items: center;
+    padding: 15px 0 0;
+}
+.creator .avatar {
+    max-width: 32px;
+    border: 1px solid white;
+    border-radius: 50%;
+    margin-right: 15px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.creator .avatar:hover {
+    box-shadow: 0 0  8px white;
+}
+.creator h2 {
+    color: white;
+    font-size: 15px;
+    font-weight: 300;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.creator h2:hover {
+    color: hsl(178, 100%, 50%);
+}
+.creator span  {
+    color: hsl(215, 51%, 70%);
+}
+.attribution {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translatex(-50%);
+    padding: 20px;
+    color: white;
+}
